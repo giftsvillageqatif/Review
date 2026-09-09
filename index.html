@@ -8,14 +8,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --ink:#1E2A22;
-    --paper:#FBF7F2;
-    --gold:#B98B3E;
-    --gold-light:#E4C88B;
-    --sage:#6E8570;
-    --blush:#F1DFD6;
-    --card-shadow: 0 24px 60px -32px rgba(30,42,34,0.35);
+    :root{
+    --ink:#3D2418;
+    --paper:#FDF3F6;
+    --gold:#D9598B;
+    --gold-light:#F0A8C4;
+    --sage:#B98B3E;
+    --blush:#F8D9E4;
+    --card-shadow: 0 24px 60px -32px rgba(217,89,139,0.35);
   }
 
   *{ box-sizing:border-box; }
@@ -30,9 +30,9 @@
   }
 
   body{
-    background-image:
-      radial-gradient(circle at 12% 8%, rgba(185,139,62,0.10), transparent 40%),
-      radial-gradient(circle at 88% 92%, rgba(110,133,112,0.12), transparent 45%);
+        background-image:
+      radial-gradient(circle at 12% 8%, rgba(217,89,139,0.10), transparent 40%),
+      radial-gradient(circle at 88% 92%, rgba(185,139,62,0.12), transparent 45%);
     padding: 48px 16px 80px;
     display:flex;
     justify-content:center;
@@ -53,7 +53,7 @@
 
   .card{
     background:#fff;
-    border:1px solid rgba(30,42,34,0.08);
+    border:1px solid rgba(61,36,24,0.08);
     border-radius:20px;
     box-shadow:var(--card-shadow);
     padding:40px 32px 36px;
@@ -180,7 +180,7 @@
     width:100%;
     border:none;
     cursor:pointer;
-    background:linear-gradient(90deg, var(--ink), #2C3B2E);
+    background:linear-gradient(90deg, var(--ink), #B03B5F);
     color:#F6F1E8;
     font-family:inherit;
     font-weight:600;
@@ -188,7 +188,7 @@
     padding:15px 20px;
     border-radius:14px;
     transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
-    box-shadow: 0 14px 26px -14px rgba(30,42,34,0.55);
+    box-shadow: 0 14px 26px -14px rgba(61,36,24,0.55);
   }
   button.submit:hover{ transform:translateY(-1px); }
   button.submit:disabled{ opacity:.6; cursor:default; transform:none; }
@@ -249,7 +249,7 @@
   <div class="ribbon"></div>
   <div class="card">
 
-    <div class="brand"><img src="logo.png" alt="قرية الهدايا" style="height:44px;width:auto;object-fit:contain;"></div>
+        <div class="brand"><img src="logo.jpg" alt="قرية الهدايا" style="width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 8px 18px -8px rgba(61,36,24,0.4);"></div>
     <h1>كيف كانت تجربتك مع قرية الهدايا؟</h1>
     <p class="intro">شكرًا لاختيارك <strong>قرية الهدايا</strong> ❤️<br>
     نحب نسمع رأيك بكل صراحة، تقييمك يساعدنا نطوّر خدماتنا ونقدم لك تجربة أفضل دائمًا.
@@ -305,7 +305,7 @@
 
       <fieldset>
         <legend>وش أكثر شيء عجبك في تجربتك معنا؟ ❤️</legend>
-        <textarea name="liked" placeholder="اكتب إجابتك هنا..." required></textarea>
+        <textarea name="liked" placeholder="اكتب إجابتك هنا... (اختياري)"></textarea>
       </fieldset>
 
       <fieldset>
