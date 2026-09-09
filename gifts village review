@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>كيف كانت تجربتك مع قرية الهدايا؟ 🎁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1E2A22;
+    --paper:#FBF7F2;
+    --gold:#B98B3E;
+    --gold-light:#E4C88B;
+    --sage:#6E8570;
+    --blush:#F1DFD6;
+    --card-shadow: 0 24px 60px -32px rgba(30,42,34,0.35);
+  }
+
+  *{ box-sizing:border-box; }
+
+  html,body{
+    margin:0;
+    padding:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans Arabic', sans-serif;
+    min-height:100%;
+  }
+
+  body{
+    background-image:
+      radial-gradient(circle at 12% 8%, rgba(185,139,62,0.10), transparent 40%),
+      radial-gradient(circle at 88% 92%, rgba(110,133,112,0.12), transparent 45%);
+    padding: 48px 16px 80px;
+    display:flex;
+    justify-content:center;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:560px;
+  }
+
+  .ribbon{
+    height:6px;
+    width:64px;
+    background:linear-gradient(90deg, var(--gold), var(--gold-light));
+    border-radius:4px;
+    margin:0 auto 22px;
+  }
+
+  .card{
+    background:#fff;
+    border:1px solid rgba(30,42,34,0.08);
+    border-radius:20px;
+    box-shadow:var(--card-shadow);
+    padding:40px 32px 36px;
+  }
+
+  .brand{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:18px;
+  }
+  .brand .icon{
+    width:44px; height:44px;
+    border-radius:12px;
+    background:var(--blush);
+    display:flex; align-items:center; justify-content:center;
+    font-size:22px;
+  }
+
+  h1{
+    font-family:'Aref Ruqaa', serif;
+    font-weight:700;
+    font-size:30px;
+    line-height:1.35;
+    text-align:center;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+
+  .intro{
+    text-align:center;
+    color:#57604F;
+    font-size:15px;
+    line-height:1.9;
+    margin:0 auto 32px;
+    max-width:420px;
+  }
+  .intro strong{ color:var(--ink); }
+
+  .divider{
+    border:none;
+    border-top:1px dashed rgba(30,42,34,0.15);
+    margin:28px 0;
+  }
+
+  fieldset{
+    border:none;
+    margin:0 0 26px;
+    padding:0;
+  }
+
+  legend{
+    font-weight:600;
+    font-size:15.5px;
+    margin-bottom:12px;
+    padding:0;
+    display:block;
+  }
+
+  .stars{
+    display:flex;
+    flex-direction:row-reverse;
+    justify-content:flex-end;
+    gap:6px;
+  }
+
+  .stars input{
+    position:absolute;
+    opacity:0;
+    width:0; height:0;
+  }
+
+  .stars label{
+    cursor:pointer;
+    font-size:30px;
+    line-height:1;
+    color:#E4DED4;
+    transition: transform .12s ease, color .12s ease;
+  }
+
+  .stars label:hover,
+  .stars label:hover ~ label{
+    transform:scale(1.08);
+  }
+
+  .stars:hover label{ color:#E4DED4; }
+  .stars label:hover{ color:var(--gold); }
+  .stars label:hover ~ label{ color:var(--gold); }
+
+  .stars input:checked ~ label{ color:var(--gold); }
+
+  /* since DOM order is 5..1 with row-reverse, checked star + following siblings (visually to its right in RTL) light up */
+  .stars input:focus-visible + label{
+    outline:2px solid var(--sage);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  textarea{
+    width:100%;
+    resize:vertical;
+    min-height:96px;
+    border-radius:12px;
+    border:1px solid rgba(30,42,34,0.16);
+    background:#FCFAF7;
+    padding:14px 16px;
+    font-family:inherit;
+    font-size:15px;
+    color:var(--ink);
+    line-height:1.7;
+  }
+
+  textarea::placeholder{ color:#9AA096; }
+
+  textarea:focus, .stars label:focus-visible{
+    outline:2px solid var(--sage);
+    outline-offset:2px;
+  }
+
+  .submit-row{ margin-top:8px; }
+
+  button.submit{
+    width:100%;
+    border:none;
+    cursor:pointer;
+    background:linear-gradient(90deg, var(--ink), #2C3B2E);
+    color:#F6F1E8;
+    font-family:inherit;
+    font-weight:600;
+    font-size:16px;
+    padding:15px 20px;
+    border-radius:14px;
+    transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+    box-shadow: 0 14px 26px -14px rgba(30,42,34,0.55);
+  }
+  button.submit:hover{ transform:translateY(-1px); }
+  button.submit:disabled{ opacity:.6; cursor:default; transform:none; }
+
+  .hint-error{
+    color:#B3492F;
+    font-size:13px;
+    margin-top:10px;
+    display:none;
+  }
+
+  /* Thank-you state */
+  .thanks{
+    display:none;
+    text-align:center;
+    padding:20px 6px 6px;
+  }
+  .thanks .icon{
+    width:56px; height:56px;
+    margin:0 auto 18px;
+    border-radius:50%;
+    background:var(--blush);
+    display:flex; align-items:center; justify-content:center;
+    font-size:26px;
+  }
+  .thanks h2{
+    font-family:'Aref Ruqaa', serif;
+    font-size:24px;
+    margin:0 0 10px;
+  }
+  .thanks p{
+    color:#57604F;
+    font-size:15px;
+    line-height:1.8;
+    margin:0;
+  }
+
+  form.hidden{ display:none; }
+  .thanks.visible{ display:block; }
+
+  footer{
+    text-align:center;
+    margin-top:22px;
+    font-size:12.5px;
+    color:#9AA096;
+  }
+
+  @media (max-width:420px){
+    .card{ padding:30px 20px 28px; }
+    h1{ font-size:25px; }
+    .stars label{ font-size:26px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="ribbon"></div>
+  <div class="card">
+
+    <div class="brand"><span class="icon">🎁</span></div>
+    <h1>كيف كانت تجربتك مع قرية الهدايا؟</h1>
+    <p class="intro">شكرًا لاختيارك <strong>قرية الهدايا</strong> ❤️<br>
+    نحب نسمع رأيك بكل صراحة، تقييمك يساعدنا نطوّر خدماتنا ونقدم لك تجربة أفضل دائمًا.
+    التقييم يستغرق أقل من دقيقة.</p>
+
+    <hr class="divider">
+
+    <form id="reviewForm">
+
+      <fieldset>
+        <legend>كيف تقيّم تجربتك معنا بشكل عام؟ ⭐</legend>
+        <div class="stars" data-question="overall">
+          <input type="radio" name="overall" id="overall-5" value="5"><label for="overall-5" title="5">★</label>
+          <input type="radio" name="overall" id="overall-4" value="4"><label for="overall-4" title="4">★</label>
+          <input type="radio" name="overall" id="overall-3" value="3"><label for="overall-3" title="3">★</label>
+          <input type="radio" name="overall" id="overall-2" value="2"><label for="overall-2" title="2">★</label>
+          <input type="radio" name="overall" id="overall-1" value="1"><label for="overall-1" title="1">★</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>كيف تقيّم سرعة التوصيل؟ 🚚</legend>
+        <div class="stars" data-question="delivery">
+          <input type="radio" name="delivery" id="delivery-5" value="5"><label for="delivery-5">★</label>
+          <input type="radio" name="delivery" id="delivery-4" value="4"><label for="delivery-4">★</label>
+          <input type="radio" name="delivery" id="delivery-3" value="3"><label for="delivery-3">★</label>
+          <input type="radio" name="delivery" id="delivery-2" value="2"><label for="delivery-2">★</label>
+          <input type="radio" name="delivery" id="delivery-1" value="1"><label for="delivery-1">★</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>كيف تقيّم خدمة العملاء؟ 💬</legend>
+        <div class="stars" data-question="service">
+          <input type="radio" name="service" id="service-5" value="5"><label for="service-5">★</label>
+          <input type="radio" name="service" id="service-4" value="4"><label for="service-4">★</label>
+          <input type="radio" name="service" id="service-3" value="3"><label for="service-3">★</label>
+          <input type="radio" name="service" id="service-2" value="2"><label for="service-2">★</label>
+          <input type="radio" name="service" id="service-1" value="1"><label for="service-1">★</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>كيف تقيّم سهولة استخدام المتجر والطلب؟ 🛍️</legend>
+        <div class="stars" data-question="easeOfUse">
+          <input type="radio" name="easeOfUse" id="ease-5" value="5"><label for="ease-5">★</label>
+          <input type="radio" name="easeOfUse" id="ease-4" value="4"><label for="ease-4">★</label>
+          <input type="radio" name="easeOfUse" id="ease-3" value="3"><label for="ease-3">★</label>
+          <input type="radio" name="easeOfUse" id="ease-2" value="2"><label for="ease-2">★</label>
+          <input type="radio" name="easeOfUse" id="ease-1" value="1"><label for="ease-1">★</label>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>وش أكثر شيء عجبك في تجربتك معنا؟ ❤️</legend>
+        <textarea name="liked" placeholder="اكتب إجابتك هنا..." required></textarea>
+      </fieldset>
+
+      <fieldset>
+        <legend>هل عندك ملاحظة أو اقتراح يساعدنا نكون أفضل؟ 💡</legend>
+        <textarea name="suggestion" placeholder="اكتب إجابتك هنا... (اختياري)"></textarea>
+      </fieldset>
+
+      <div class="hint-error" id="errorMsg">تكفى قيّم النجوم الأربعة قبل الإرسال 🙏</div>
+
+      <div class="submit-row">
+        <button type="submit" class="submit" id="submitBtn">إرسال التقييم</button>
+      </div>
+    </form>
+
+    <div class="thanks" id="thanksBox">
+      <div class="icon">✅</div>
+      <h2>وصلنا تقييمك، شاكرين وقتك!</h2>
+      <p>رأيك يوصّلنا خطوة أقرب لتجربة أحلى في المرة الجاية 🎁</p>
+    </div>
+
+  </div>
+  <footer>قرية الهدايا</footer>
+</div>
+
+<script>
+  // ⚠️ استبدل الرابط التالي برابط تطبيق الويب (Web App URL) اللي تحصل عليه من Google Apps Script
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbzvEoxt5jTEVYABdfZBMh37ooi1HR97MsYtvOoMhMG_0YNu66cLLQf5OzWoFi0oqgmlPw/exec";
+
+  const form = document.getElementById('reviewForm');
+  const errorMsg = document.getElementById('errorMsg');
+  const submitBtn = document.getElementById('submitBtn');
+  const thanksBox = document.getElementById('thanksBox');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    const required = ['overall','delivery','service','easeOfUse'];
+    const missing = required.some(name => !form.querySelector(`input[name="${name}"]:checked`));
+    if(missing){
+      errorMsg.style.display = 'block';
+      return;
+    }
+    errorMsg.style.display = 'none';
+
+    const data = new URLSearchParams();
+    required.forEach(name => {
+      data.append(name, form.querySelector(`input[name="${name}"]:checked`).value);
+    });
+    data.append('liked', form.liked.value.trim());
+    data.append('suggestion', form.suggestion.value.trim());
+    data.append('page', 'gifts-village.sa');
+    data.append('submittedAt', new Date().toISOString());
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'جاري الإرسال...';
+
+    if(!GAS_URL || GAS_URL.indexOf('PASTE_YOUR') === 0){
+      // لم يتم ربط رابط الشيت بعد — نعرض رسالة الشكر مباشرة كوضع تجريبي
+      setTimeout(showThanks, 400);
+      return;
+    }
+
+    fetch(GAS_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: data
+    }).then(showThanks).catch(showThanks);
+  });
+
+  function showThanks(){
+    form.classList.add('hidden');
+    thanksBox.classList.add('visible');
+  }
+</script>
+
+</body>
+</html>
